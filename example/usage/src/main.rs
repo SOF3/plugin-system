@@ -17,13 +17,13 @@
 
 plugin_system::load! {
     core "plugin-system-example-core" {
-        version = "0.1.0",
+        version = "0.1.1",
         // the path is relative to $STAGE_DIR
         path = "../example/core",
     },
 
     plugin "plugin-system-example-plugins-bar" {
-        version = "0.1.0",
+        version = "0.1.1",
         path = "../example/plugins/bar"
     },
 }

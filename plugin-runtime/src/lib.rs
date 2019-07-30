@@ -55,7 +55,10 @@ pub trait PluginManifest {
 #[macro_export]
 macro_rules! require_plugin {
     ($list:expr, $name:ident) => {
-        $list.require::<'_, '_, $name::PluginManifestImpl, _>(|list| $name::PluginManifestImpl::init(list))
+        $list.require::<'_, '_, $name::PluginManifestImpl, _>(|list| {
+            use plugin_runtime::PluginManifest;
+            $name::PluginManifestImpl::init(list)
+        })
     };
 }
 

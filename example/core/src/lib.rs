@@ -23,6 +23,11 @@ pub trait Command: Debug {
     fn execute(&self);
 }
 
-pub fn start(plugins: PluginList) {
-    dbg!(plugins);
+pub fn start(mut plugins: PluginList) {
+    dbg!(&plugins);
+    for cmd in plugins.list::<Box<dyn Command>>() {
+        println!("Command {}:", cmd.name());
+        cmd.execute();
+        println!("Execution of command {} completed", cmd.name());
+    }
 }
