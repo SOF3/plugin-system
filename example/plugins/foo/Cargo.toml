@@ -1,0 +1,12 @@
+[package]
+name = "plugin-system-example-plugins-foo"
+version = "0.1.0"
+authors = ["SOFe <sofe2038@gmail.com>"]
+edition = "2018"
+license = "Apache-2.0"
+repository = "https://github.com/SOF3/plugin-system.git"
+homepage = "https://github.com/SOF3/plugin-system"
+
+[dependencies]
+plugin-runtime = {version = "0.1.0", path = "../../../plugin-runtime"}
+plugin-system-example-core = {version = "0.1.0", path = "../../core"}

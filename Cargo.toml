@@ -1,0 +1,10 @@
+[workspace]
+members = [
+	"plugin-system",
+	"plugin-runtime",
+	"plugin-runtime-codegen",
+	"example",
+	"example/core",
+	"example/plugins/foo",
+	"example/plugins/bar",
+]

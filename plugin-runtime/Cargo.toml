@@ -1,0 +1,14 @@
+[package]
+name = "plugin-runtime"
+version = "0.1.0"
+authors = ["SOFe <sofe2038@gmail.com>"]
+edition = "2018"
+license = "Apache-2.0"
+repository = "https://github.com/SOF3/plugin-system.git"
+homepage = "https://github.com/SOF3/plugin-system"
+description = "Runtime dependency for plugin-system"
+
+[dependencies]
+plugin-runtime-codegen = {version = "0.1.0", path = "../plugin-runtime-codegen"}
+state = "0.4.1"
+typemap = "0.3.3"

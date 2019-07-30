@@ -1,0 +1,17 @@
+[package]
+name = "plugin-system"
+version = "0.1.0"
+authors = ["SOFe <sofe2038@gmail.com>"]
+edition = "2018"
+license = "Apache-2.0"
+repository = "https://github.com/SOF3/plugin-system.git"
+homepage = "https://github.com/SOF3/plugin-system"
+description = "A Rust project plugin management system using Cargo"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "0.4.30"
+quote = "0.6.13"
+syn = {version = "0.15.42", features = ["full"]}
