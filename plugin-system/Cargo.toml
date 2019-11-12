@@ -12,6 +12,6 @@ description = "A Rust project plugin management system using Cargo"
 proc-macro = true
 
 [dependencies]
-proc-macro2 = "0.4.30"
-quote = "0.6.13"
-syn = {version = "0.15.42", features = ["full"]}
+proc-macro2 = "1.0.6"
+quote = "1.0.2"
+syn = { version = "1.0.8", features = ["full"] }

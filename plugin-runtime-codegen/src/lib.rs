@@ -50,16 +50,14 @@ pub fn declare_plugin(
 
 fn plugin_impl(input: PluginManifestInput, func: ItemFn) -> syn::Result<TokenStream> {
     let _core_name = &input.core_name; // TODO check correctness of core
-    let func_name = &func.ident;
+    let func_name = &func.sig.ident;
     let maps_args = func
-        .decl
+        .sig
         .inputs
         .iter()
         .map(|arg| {
             Ok(match arg_to_dep(&arg)? {
-                Some(ident_name) => {
-                    quote!(require_plugin!(deps, #ident_name))
-                }
+                Some(ident_name) => quote!(require_plugin!(deps, #ident_name)),
                 None => quote!(&mut map),
             })
         })
@@ -128,9 +126,9 @@ fn is_option_feature_map(_path: &Path) -> bool {
 
 fn arg_to_dep(arg: &FnArg) -> syn::Result<Option<Ident>> {
     match arg {
-        FnArg::Captured(arg_captured) => {
-            let ty = &arg_captured.ty;
-            let pat = &arg_captured.pat;
+        FnArg::Typed(pat_type) => {
+            let ty = pat_type.ty.as_ref();
+            let pat = pat_type.pat.as_ref();
 
             let (optional, mutable) = match ty {
                 Type::Reference(reference) => {

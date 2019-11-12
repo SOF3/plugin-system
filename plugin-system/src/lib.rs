@@ -88,7 +88,10 @@ plugin-runtime = {}
         .iter()
         .map(|(package, _)| {
             let plugin_ident = package.replace("-", "_");
-            format!("require_plugin!(plugins, {});", &plugin_ident[1..(plugin_ident.len() - 1)])
+            format!(
+                "require_plugin!(plugins, {});",
+                &plugin_ident[1..(plugin_ident.len() - 1)]
+            )
         })
         .collect::<String>();
     let main = format!(
